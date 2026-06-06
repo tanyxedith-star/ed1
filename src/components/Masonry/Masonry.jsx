@@ -159,11 +159,12 @@ const grid = useMemo(() => {
     const col = colHeights.indexOf(Math.min(...colHeights));
     const x = offsetX + columnWidth * col + gap * col;
     
-    const height = getResponsiveHeight(child.height);
+    let height = getResponsiveHeight(child.height);
 
     const y = colHeights[col];
 
-    const validHeight = isNaN(height) || height <= 0 ? 200 : height;
+    // 修复：确保高度有效
+    height = isNaN(height) || height <= 0 ? 200 : height;
 
     colHeights[col] += height + gap;
 
