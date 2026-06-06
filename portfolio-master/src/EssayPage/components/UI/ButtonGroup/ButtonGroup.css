@@ -1,0 +1,513 @@
+/* 定义自定义属性 --angle-1，用于表示角度 */
+@property --angle-1 {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: -75deg;
+}
+
+/* 定义自定义属性 --angle-2，用于表示角度 */
+@property --angle-2 {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: -45deg;
+}
+
+:root {
+  --global--size: 1.6em;
+  --anim--hover-time: 400ms;
+  --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 右上角按钮统一样式 */
+.reset-button,
+.essay-save-layout-button,
+.change-background-btn,
+.add-image-box-btn,
+.rolling-gallery-upload-btn,
+.add-custom-gallery-btn,
+.delete-gallery-btn,
+.delete-gallery-images-btn,
+.add-note-box-btn,
+.delete-note-box-btn,
+.theme-switch-mobile-btn {
+  --border-width: clamp(1px, 0.0625em, 4px);
+  all: unset;
+  cursor: pointer;
+  position: fixed !important;
+  right: 20px !important;
+  z-index: 100000 !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  pointer-events: auto;
+  background: linear-gradient(
+    -75deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-radius: 999vw;
+  box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+    inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+    0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+    0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.2),
+    0 0 0 0 rgba(255, 255, 255, 1);
+  backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+  -webkit-backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+  transition: all var(--anim--hover-time) var(--anim--hover-ease);
+  width: 140px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* 防止内容溢出 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 按钮文字样式 - 确保文字不会超出边界 */
+.reset-button,
+.essay-save-layout-button,
+.change-background-btn,
+.add-image-box-btn,
+.rolling-gallery-upload-btn,
+.add-custom-gallery-btn,
+.delete-gallery-btn,
+.delete-gallery-images-btn,
+.add-note-box-btn,
+.delete-note-box-btn,
+.theme-switch-mobile-btn {
+  position: relative;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  font-size: clamp(0.8em, 0.5em + 0.5vw, 1.2em) !important;
+  line-height: 1.2;
+  color: var(--theme-text-primary);
+  text-align: center;
+  z-index: 1;
+  /* 确保文字不会超出按钮边界 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+/* 汉堡菜单按钮样式 */
+.hamburger-menu-btn {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 50px !important;
+  height: 50px !important;
+  background: var(--theme-bg-primary) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  display: none !important; /* 默认隐藏，只在移动端显示 */
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 4px !important;
+  z-index: 100001 !important;
+  transition: all 0.3s ease !important;
+}
+
+.hamburger-menu-btn:hover {
+  background: var(--theme-bg-secondary) !important;
+  transform: scale(1.05) !important;
+}
+
+.hamburger-line {
+  width: 20px !important;
+  height: 2px !important;
+  background: var(--theme-text-primary) !important;
+  border-radius: 1px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 主题切换按钮 - 只在移动端汉堡菜单中显示 */
+.theme-switch-mobile-btn {
+  display: none !important; 
+}
+
+/* 手机端显示主题切换按钮 */
+@media (max-width: 480px) {
+  .button-container .theme-switch-mobile-btn {
+    display: block !important;
+  }
+}
+
+/* 响应式设计 */
+/* 平板横屏和大屏幕 (769px+) */
+@media (min-width: 769px) {
+  .reset-button,
+  .essay-save-layout-button,
+  .change-background-btn,
+  .add-image-box-btn,
+  .rolling-gallery-upload-btn,
+  .add-custom-gallery-btn,
+  .delete-gallery-btn,
+  .delete-gallery-images-btn,
+.add-note-box-btn,
+.delete-note-box-btn,
+.theme-switch-mobile-btn {
+    width: 140px !important;
+    height: 40px !important;
+  }
+
+  .reset-button,
+  .essay-save-layout-button,
+  .change-background-btn,
+  .add-image-box-btn,
+  .rolling-gallery-upload-btn,
+  .add-custom-gallery-btn,
+  .delete-gallery-btn,
+  .delete-gallery-images-btn,
+.add-note-box-btn,
+.delete-note-box-btn,
+.theme-switch-mobile-btn {
+    font-size: clamp(0.9em, 0.6em + 0.3vw, 1.1em) !important;
+  }
+}
+
+/* 平板竖屏 (481px - 768px) - 使用正常右侧按钮，不使用汉堡菜单 */
+@media (max-width: 768px) and (min-width: 481px) {
+  /* 隐藏汉堡菜单按钮 */
+  .hamburger-menu-btn {
+    display: none !important;
+  }
+
+  /* 平板端按钮位置设置 - 统一间距为50px */
+  .change-background-btn {
+    top: 70px !important;
+  }
+
+  .reset-button {
+    top: 120px !important;
+  }
+
+  .essay-save-layout-button {
+    top: 170px !important;
+  }
+
+  .add-image-box-btn {
+    top: 220px !important;
+  }
+
+  .add-custom-gallery-btn {
+    top: 270px !important;
+  }
+
+  .delete-gallery-btn {
+    top: 320px !important;
+  }
+
+  .rolling-gallery-upload-btn {
+    top: 370px !important;
+  }
+
+  .delete-gallery-images-btn {
+    top: 420px !important;
+  }
+
+  .add-note-box-btn {
+    top: 470px !important;
+  }
+
+  .delete-note-box-btn {
+    top: 520px !important;
+  }
+
+  /* 隐藏移动端主题切换按钮 */
+  .theme-switch-mobile-btn {
+    display: none !important;
+  }
+  /* 平板端按钮样式 */
+  .reset-button,
+  .essay-save-layout-button,
+  .change-background-btn,
+  .add-image-box-btn,
+  .rolling-gallery-upload-btn,
+  .add-custom-gallery-btn,
+  .delete-gallery-btn,
+  .delete-gallery-images-btn,
+  .add-note-box-btn,
+  .delete-note-box-btn {
+    width: 120px !important;
+    height: 36px !important;
+    right: 16px !important;
+    font-size: 0.85em !important;
+    padding: 0 3px !important;
+  }
+}
+
+/* 手机端 (≤480px) */
+@media (max-width: 480px) {
+  /* 显示汉堡菜单按钮 */
+  .hamburger-menu-btn {
+    display: flex !important;
+    width: 40px !important;
+    height: 40px !important;
+    right: 12px !important;
+  }
+
+  /* 汉堡菜单容器 */
+  .button-container {
+    position: fixed !important;
+    top: 65px !important;
+    right: 12px !important;
+    background: var(--theme-bg-primary) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+    max-height: calc(100vh - 90px) !important;
+    overflow-y: auto !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    z-index: 100000 !important;
+    min-width: 100px !important;
+  }
+
+  .button-container.menu-open {
+    display: flex !important;
+  }
+  .button-container .reset-button,
+  .button-container .essay-save-layout-button,
+  .button-container .change-background-btn,
+  .button-container .add-image-box-btn,
+  .button-container .rolling-gallery-upload-btn,
+  .button-container .add-custom-gallery-btn,
+  .button-container .delete-gallery-btn,
+  .button-container .delete-gallery-images-btn,
+  .button-container .add-note-box-btn,
+  .button-container .delete-note-box-btn,
+.theme-switch-mobile-btn {
+    position: relative !important;
+    width: 100% !important;
+    height: 32px !important;
+    right: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    font-size: 0.75em !important;
+    padding: 0 6px !important;
+  }
+}
+
+/* 手机小屏 (≤360px) */
+@media (max-width: 360px) {
+  /* 显示汉堡菜单按钮 */
+  .hamburger-menu-btn {
+    display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    right: 8px !important;
+  }
+
+  .hamburger-line {
+    width: 16px !important;
+    height: 2px !important;
+  }
+
+  /* 汉堡菜单容器 */
+  .button-container {
+    position: fixed !important;
+    top: 55px !important;
+    right: 8px !important;
+    background: var(--theme-bg-primary) !important;
+    border: 2px solid var(--theme-primary) !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+    max-height: calc(100vh - 80px) !important;
+    overflow-y: auto !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    z-index: 100000 !important;
+    min-width: 90px !important;
+  }
+
+  .button-container.menu-open {
+    display: flex !important;
+  }
+  .button-container .reset-button,
+  .button-container .essay-save-layout-button,
+  .button-container .change-background-btn,
+  .button-container .add-image-box-btn,
+  .button-container .rolling-gallery-upload-btn,
+  .button-container .add-custom-gallery-btn,
+  .button-container .delete-gallery-btn,
+  .button-container .delete-gallery-images-btn,
+  .button-container .add-note-box-btn,
+  .button-container .delete-note-box-btn,
+.theme-switch-mobile-btn {
+    position: relative !important;
+    width: 100% !important;
+    height: 30px !important;
+    right: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    font-size: 0.7em !important;
+    padding: 0 4px !important;
+    letter-spacing: -0.03em !important;
+  }
+
+}
+
+/* 超小屏幕 (≤320px) */
+@media (max-width: 320px) {
+  /* 显示汉堡菜单按钮 */
+  .hamburger-menu-btn {
+    display: flex !important;
+    width: 32px !important;
+    height: 32px !important;
+    right: 6px !important;
+  }
+
+  .hamburger-line {
+    width: 14px !important;
+    height: 1.5px !important;
+  }
+
+  /* 汉堡菜单容器 */
+  .button-container {
+    position: fixed !important;
+    top: 50px !important;
+    right: 6px !important;
+    background: var(--theme-bg-primary) !important;
+    border: 2px solid var(--theme-primary) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+    max-height: calc(100vh - 70px) !important;
+    overflow-y: auto !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    z-index: 100000 !important;
+    min-width: 80px !important;
+  }
+
+  .button-container.menu-open {
+    display: flex !important;
+  }
+  .button-container .reset-button,
+  .button-container .essay-save-layout-button,
+  .button-container .change-background-btn,
+  .button-container .add-image-box-btn,
+  .button-container .rolling-gallery-upload-btn,
+  .button-container .add-custom-gallery-btn,
+  .button-container .delete-gallery-btn,
+  .button-container .delete-gallery-images-btn,
+  .button-container .add-note-box-btn,
+  .button-container .delete-note-box-btn,
+.theme-switch-mobile-btn {
+    position: relative !important;
+    width: 100% !important;
+    height: 28px !important;
+    right: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    font-size: 0.65em !important;
+    padding: 0 3px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+/* 桌面端按钮位置设置 - 只在大屏幕显示 */
+@media (min-width: 769px) {
+  /* 桌面端隐藏移动端主题切换按钮 */
+  .theme-switch-mobile-btn {
+    display: none !important;
+  }
+
+  .change-background-btn {
+    top: 80px !important;
+  }
+
+  .reset-button {
+    top: 140px !important;
+  }
+
+  .essay-save-layout-button {
+    top: 200px !important;
+  }
+
+  .add-image-box-btn {
+    top: 260px !important;
+  }
+
+  .add-custom-gallery-btn {
+    top: 320px !important;
+  }
+
+  .delete-gallery-btn {
+    top: 380px !important;
+  }
+
+  .rolling-gallery-upload-btn {
+    top: 440px !important;
+  }
+
+  .delete-gallery-images-btn {
+    top: 500px !important;
+  }
+
+  .add-note-box-btn {
+    top: 560px !important;
+  }
+
+  .delete-note-box-btn {
+    top: 620px !important;
+  }
+}
+
+/* 按钮悬停效果 */
+.reset-button:hover,
+.essay-save-layout-button:hover,
+.change-background-btn:hover,
+.add-image-box-btn:hover,
+.rolling-gallery-upload-btn:hover,
+.add-custom-gallery-btn:hover,
+.delete-gallery-btn:hover,
+.delete-gallery-images-btn:hover,
+.add-note-box-btn:hover,
+.delete-note-box-btn:hover,
+.theme-switch-mobile-btn:hover {
+  transform: scale(0.975);
+  backdrop-filter: blur(0.01em);
+  -webkit-backdrop-filter: blur(0.01em);
+  -moz-backdrop-filter: blur(0.01em);
+  -ms-backdrop-filter: blur(0.01em);
+  box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+    inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+    0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
+    0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.5),
+    0 0 0 0 rgba(255, 255, 255, 1);
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .reset-button:hover,
+  .essay-save-layout-button:hover,
+  .change-background-btn:hover,
+  .add-image-box-btn:hover,
+  .rolling-gallery-upload-btn:hover,
+  .add-custom-gallery-btn:hover,
+  .delete-gallery-btn:hover,
+  .delete-gallery-images-btn:hover,
+  .add-note-box-btn:hover,
+  .delete-note-box-btn:hover,
+  .theme-switch-mobile-btn:hover {
+    transform: none;
+  }
+}

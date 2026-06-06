@@ -1,0 +1,110 @@
+@import './components/Record/RecordSection.css';
+@import './components/GallerySector/GallerySector.css';
+@import './components/ImageBox/ImageBoxes.css';
+@import './components/ImageCardSector/ImageSelectionModal.css';
+
+@import './components/UI/BackgroundLayer/BackgroundLayer.css';
+@import './components/UI/ButtonGroup/ButtonGroup.css';
+@import './components/UI/ConfirmDialog/ConfirmDialog.css';
+@import './components/UI/InputDialog/InputDialog.css';
+@import './components/UI/ThemeSwitcher/ThemeSwitcher.css';
+@import './components/UI/ToastMessage/ToastMessage.css';
+@import './components/UI/ThemesColour/ThemesColour.css';
+
+@import './components/Notes/NoteBoxes.css';
+@import './components/Notes/NoteDeleteSelector.css';
+@import './components/Gallery/GalleryDisplaySection.css'; 
+
+/* 统一弹窗、按钮样式 */
+.modal-btn {
+  background: var(--theme-bg-tertiary) !important;
+  color: var(--theme-text-primary) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.modal-btn:hover {
+  background: var(--theme-bg-tertiary) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 统一弹窗标题样式 */
+.modal-title {
+  margin: 0 0 25px 0 !important;
+  font-size: 24px !important;
+  color: var(--theme-text-primary) !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+}
+
+.essay-page {
+  min-height: 1500px !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  font-family: 'Arial', sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* 全局响应式设计 */
+@media (max-width: 768px) {
+  .essay-page {
+    min-height: 1200px !important;
+  }
+
+  .modal-btn {
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+    width: auto !important;
+    min-width: 70px !important;
+  }
+
+  .modal-title {
+    font-size: 22px !important;
+    margin: 0 0 20px 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .essay-page {
+    min-height: 1000px !important;
+  }
+
+  .modal-btn {
+    font-size: 13px !important;
+    padding: 6px 12px !important;
+    width: auto !important;
+    min-width: 60px !important;
+  }
+
+  .modal-title {
+    font-size: 20px !important;
+    margin: 0 0 18px 0 !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .essay-page {
+    min-height: 800px !important;
+  }
+
+  .modal-btn {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+    width: auto !important;
+    min-width: 50px !important;
+  }
+
+  .modal-title {
+    font-size: 18px !important;
+    margin: 0 0 15px 0 !important;
+  }
+}
