@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import './styles/main.css';
 import Navbar from './sections/Navbar';
 // import FloatBall from './sections/FloatBall';
@@ -33,12 +33,12 @@ function Portfolio() {
 function App() {
   return (
     <LanguageProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Portfolio />} />
           <Route path="/essay" element={<EssayPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </LanguageProvider>
   );
 }
