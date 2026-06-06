@@ -1,5 +1,4 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
 import './styles/main.css';
 import Navbar from './sections/Navbar';
 // import FloatBall from './sections/FloatBall';
@@ -10,35 +9,22 @@ import SkillsSection from './sections/SkillsSection';
 import ProjectSection from './sections/ProjectSection';
 import ContactSection from './sections/ContactSection';
 import Footer from './sections/Footer';
-import EssayPage from './EssayPage/EssayPage';
 import { LanguageProvider } from './context/LanguageContext';
-
-// 原有的个人作品集页面组件
-function Portfolio() {
-  return (
-    <div className="App">
-      <Navbar />
-      {/* <FloatBall /> */}
-      <PersonalSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <ProjectSection />
-      <PhotoWallSection />
-      <ContactSection />
-      <Footer />
-    </div>
-  );
-}
 
 function App() {
   return (
     <LanguageProvider>
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Portfolio />} />
-          <Route path="/essay" element={<EssayPage />} />
-        </Routes>
-      </HashRouter>
+      <div className="App">
+        <Navbar />
+        {/* <FloatBall /> */}
+        <PersonalSection />
+        <ExperienceSection />
+        <SkillsSection />
+        <ProjectSection />
+        <PhotoWallSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </LanguageProvider>
   );
 }
